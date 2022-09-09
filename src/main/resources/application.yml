@@ -1,0 +1,14 @@
+server:
+  port: 8181
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_format: true
+  datasource:
+    username: bookshop-user
+    password: jahongir98
+    url: jdbc:postgresql://localhost:5432/book-shop
