@@ -1,5 +1,9 @@
 package uz.bookshop.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,37 +43,7 @@ public class UsersController {
     }
     @GetMapping("/showUser/{letter}")
     public ResponseEntity showUserInfo(@PathVariable String letter){
-        List<Users> show = userService.findAll();
-        Date date = new Date();
-        Map<String,String> infoAdd = null;
-        if(letter.equals("week")) {
-            int i = 0;
-            while (i > 7){
-               infoAdd.put(show.get((show.size()-i)).getLogin(), show.get((show.size()-i)).getName());
-                i++;
-            }
-        }
-        if(letter.equals("month")){
-            for (int i = 0; i < show.size(); i++){
-                String[] list = show.get(i).getCreateDate().split(" ");
-                if(String.valueOf(1900+date.getYear()).equals(list[5])){
-//                    if(list[1]){
-//
-//                    }
-                }
-            }
-        }
-       return ResponseEntity.ok(infoAdd);
+
+       return ResponseEntity.ok(null);
     }
-
-//    public static void main(String[] args) {
-//        Calendar calendar = new GregorianCalendar();
-//        YearMonth yearMonth = YearMonth.now();
-//        String add = String.valueOf(yearMonth.getMonth()).toLowerCase(Locale.ROOT).substring(0,3);
-//        System.out.println(add);
-//        String list = String.valueOf(calendar.getTime());
-//        String[] now = list.split(" ");
-//        System.out.println(now[1]);
-//    }
-
 }

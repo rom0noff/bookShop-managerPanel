@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "myuser")
+@Table(name = "customerUser")
 public class Users implements Serializable {
     //
     @Id
@@ -33,7 +33,7 @@ public class Users implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "user_role",
+            name = "userRole",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_name", referencedColumnName = "name")}
 
